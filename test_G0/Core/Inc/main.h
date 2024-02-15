@@ -28,6 +28,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+
 #include "stm32g0xx_ll_rcc.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_system.h"
@@ -83,6 +84,7 @@ void Error_Handler(void);
 #define BUTTON2_GPIO_Port GPIOB
 #define BUTTON3_Pin LL_GPIO_PIN_9
 #define BUTTON3_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -92,5 +94,3 @@ void Error_Handler(void);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

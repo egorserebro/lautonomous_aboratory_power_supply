@@ -19,4 +19,7 @@ test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h
 test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h
 test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h
 test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h
+test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h
+test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_ucpd.h
+test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h
 test_g0\gpio.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h

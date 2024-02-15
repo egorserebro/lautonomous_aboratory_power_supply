@@ -26,7 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "spi_ili9341.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,11 +73,8 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
-
-  /* System interrupt init*/
 
   /** Disable the internal Pull-Up in Dead Battery pins of UCPD peripheral
   */
@@ -101,7 +98,8 @@ int main(void)
   MX_UCPD2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+	
+	 TFT9341_ini(240, 320);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -154,7 +152,6 @@ void SystemClock_Config(void)
   LL_Init1msTick(64000000);
   /* Update CMSIS variable (which can be updated also through SystemCoreClockUpdate function) */
   LL_SetSystemCoreClock(64000000);
-  LL_RCC_SetUSARTClockSource(LL_RCC_USART1_CLKSOURCE_PCLK1);
 }
 
 /* USER CODE BEGIN 4 */
@@ -192,5 +189,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

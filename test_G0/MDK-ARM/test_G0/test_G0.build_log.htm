@@ -21,26 +21,100 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TARMCM1.DLL V1.13.0.0
  
 <h2>Project:</h2>
-C:\Users\mars\Desktop\test_G0\MDK-ARM\test_G0.uvprojx
-Project File Date:  02/10/2024
+C:\Users\mars\Desktop\SD2\lautonomous_aboratory_power_supply\test_G0\MDK-ARM\test_G0.uvprojx
+Project File Date:  02/14/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'test_G0'
 assembling startup_stm32g071xx.s...
-compiling stm32g0xx_ll_pwr.c...
-compiling system_stm32g0xx.c...
-compiling stm32g0xx_ll_gpio.c...
+compiling Mod_bus.c...
+..\Core\Src\Mod_bus.c(1): warning:  #1-D: last line of file ends without a newline
+  #include "Mod_bus.h"
+..\Core\Src\Mod_bus.c: 1 warning, 0 errors
+compiling stm32g0xx_ll_spi.c...
 compiling stm32g0xx_ll_exti.c...
+compiling stm32g0xx_ll_gpio.c...
+compiling stm32g0xx_ll_pwr.c...
 compiling stm32g0xx_ll_rcc.c...
+compiling stm32g0xx_ll_dma.c...
 compiling stm32g0xx_ll_utils.c...
-compiling gpio.c...
-compiling stm32g0xx_it.c...
+compiling stm32g0xx_ll_ucpd.c...
+compiling spi_ili9341.c...
+../Core/Inc/spi_ili9341.h(19): error:  #20: identifier "SPI_HandleTypeDef" is undefined
+  extern SPI_HandleTypeDef 
+LI9341_SPI_PORT;
+../Core/Inc/spi_ili9341.h(68): warning:  #1295-D: Deprecated declaration ILI9341_Unselect - give arg types
+  void ILI9341_Unselect();
+..\Core\Src\spi_ili9341.c(19): warning:  #223-D: function "HAL_Delay" declared implicitly
+      HAL_Delay(5);
+..\Core\Src\spi_ili9341.c(24): warning:  #223-D: function "HAL_GPIO_WritePin" declared implicitly
+      HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_RESET);
+..\Core\Src\spi_ili9341.c(24): error:  #20: identifier "GPIO_PIN_9" is undefined
+      HAL_GPIO_WritePin(
+LI9341_DC_GPIO_Port, 
+LI9341_DC_Pin, GPIO_PIN_RESET);
+..\Core\Src\spi_ili9341.c(24): error:  #20: identifier "GPIO_PIN_RESET" is undefined
+      HAL_GPIO_WritePin(
+LI9341_DC_GPIO_Port, 
+LI9341_DC_Pin, GPIO_PIN_RESET);
+..\Core\Src\spi_ili9341.c(25): warning:  #223-D: function "HAL_SPI_Transmit" declared implicitly
+      HAL_SPI_Transmit(&ILI9341_SPI_PORT, &cmd, sizeof(cmd), HAL_MAX_DELAY);
+..\Core\Src\spi_ili9341.c(25): error:  #20: identifier "HAL_MAX_DELAY" is undefined
+      HAL_SPI_Transmit(&
+LI9341_SPI_PORT, &cmd, sizeof(cmd), HAL_MAX_DELAY);
+..\Core\Src\spi_ili9341.c(28): error:  #20: identifier "size_t" is undefined
+  static void ILI9341_WriteData(uint8_t* buff, size_t buff_size) {
+..\Core\Src\spi_ili9341.c(29): warning:  #223-D: function "HAL_GPIO_WritePin" declared implicitly
+      HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
+..\Core\Src\spi_ili9341.c(29): error:  #20: identifier "GPIO_PIN_9" is undefined
+      HAL_GPIO_WritePin(
+LI9341_DC_GPIO_Port, 
+LI9341_DC_Pin, GPIO_PIN_SET);
+..\Core\Src\spi_ili9341.c(29): error:  #20: identifier "GPIO_PIN_SET" is undefined
+      HAL_GPIO_WritePin(
+LI9341_DC_GPIO_Port, 
+LI9341_DC_Pin, GPIO_PIN_SET);
+..\Core\Src\spi_ili9341.c(34): warning:  #223-D: function "HAL_SPI_Transmit" declared implicitly
+          HAL_SPI_Transmit(&ILI9341_SPI_PORT, buff, chunk_size, HAL_MAX_DELAY);
+..\Core\Src\spi_ili9341.c(34): error:  #20: identifier "HAL_MAX_DELAY" is undefined
+          HAL_SPI_Transmit(&
+LI9341_SPI_PORT, buff, chunk_size, HAL_MAX_DELAY);
+..\Core\Src\spi_ili9341.c(67): warning:  #223-D: function "HAL_Delay" declared implicitly
+      HAL_Delay(1000);
+..\Core\Src\spi_ili9341.c(282): warning:  #223-D: function "HAL_GPIO_WritePin" declared implicitly
+      HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
+..\Core\Src\spi_ili9341.c(282): error:  #20: identifier "GPIO_PIN_9" is undefined
+      HAL_GPIO_WritePin(
+LI9341_DC_GPIO_Port, 
+LI9341_DC_Pin, GPIO_PIN_SET);
+..\Core\Src\spi_ili9341.c(282): error:  #20: identifier "GPIO_PIN_SET" is undefined
+      HAL_GPIO_WritePin(
+LI9341_DC_GPIO_Port, 
+LI9341_DC_Pin, GPIO_PIN_SET);
+..\Core\Src\spi_ili9341.c(285): warning:  #223-D: function "HAL_SPI_Transmit" declared implicitly
+              HAL_SPI_Transmit(&ILI9341_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
+..\Core\Src\spi_ili9341.c(285): error:  #20: identifier "HAL_MAX_DELAY" is undefined
+              HAL_SPI_Transmit(&
+LI9341_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
+..\Core\Src\spi_ili9341.c: 9 warnings, 11 errors
 compiling main.c...
-linking...
-Program Size: Code=504 RO-data=220 RW-data=4 ZI-data=1028  
-FromELF: creating hex file...
-"test_G0\test_G0.axf" - 0 Error(s), 0 Warning(s).
+../Core/Inc/spi_ili9341.h(19): error:  #20: identifier "SPI_HandleTypeDef" is undefined
+  extern SPI_HandleTypeDef 
+LI9341_SPI_PORT;
+../Core/Inc/spi_ili9341.h(68): warning:  #1295-D: Deprecated declaration ILI9341_Unselect - give arg types
+  void ILI9341_Unselect();
+../Core/Src/main.c(102): warning:  #223-D: function "TFT9341_ini" declared implicitly
+  	 TFT9341_ini(240, 320);
+../Core/Src/main.c: 2 warnings, 1 error
+compiling gpio.c...
+compiling ucpd.c...
+compiling spi.c...
+compiling usart.c...
+compiling stm32g0xx_it.c...
+compiling system_stm32g0xx.c...
+compiling stm32g0xx_ll_usart.c...
+"test_G0\test_G0.axf" - 12 Error(s), 12 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -63,7 +137,8 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
-Build Time Elapsed:  00:00:03
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
