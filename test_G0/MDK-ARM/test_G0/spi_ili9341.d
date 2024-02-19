@@ -26,3 +26,4 @@ test_g0\spi_ili9341.o: ../Core/Inc/spi_ili9341.h
 test_g0\spi_ili9341.o: ../Core/Inc/fonts.h
 test_g0\spi_ili9341.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 test_g0\spi_ili9341.o: ../Core/Inc/gpio.h
+test_g0\spi_ili9341.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

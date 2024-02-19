@@ -78,6 +78,10 @@ void Error_Handler(void);
 #define SPI1_NSS_GPIO_Port GPIOA
 #define BUTTON1_Pin LL_GPIO_PIN_10
 #define BUTTON1_GPIO_Port GPIOB
+#define RST_LCD_Pin LL_GPIO_PIN_6
+#define RST_LCD_GPIO_Port GPIOC
+#define RS_LCD_Pin LL_GPIO_PIN_7
+#define RS_LCD_GPIO_Port GPIOC
 #define LCD_LED_Pin LL_GPIO_PIN_5
 #define LCD_LED_GPIO_Port GPIOB
 #define BUTTON2_Pin LL_GPIO_PIN_8

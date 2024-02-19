@@ -98,8 +98,16 @@ int main(void)
   MX_UCPD2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+	LL_SPI_Enable(SPI1);
+ ILI9341_LED_ON();
+// ILI9341_Init();
+// ILI9341_FillScreen(1);
+	TFT9341_reset();
+
+	TFT9341_ini(240, 320);
+	 TFT9341_FillScreen(TFT9341_RED);
 	
-	 TFT9341_ini(240, 320);
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -1,5 +1,5 @@
 
-#define volt_set						1	//установка напряжения 
+#define volt_set						1	//установка напряжения 4096
 #define current_set					2	//установка тока 
 #define volt_measured				3	//измеренное напряжения
 #define current_measured		4 //измеренный ток

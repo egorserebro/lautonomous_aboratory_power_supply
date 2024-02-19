@@ -334,7 +334,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_FULL_LL_DRIVER,HSE_VALUE=16000000,HSE_STARTUP_TIMEOUT=100,LSE_STARTUP_TIMEOUT=5000,LSE_VALUE=32768,EXTERNAL_CLOCK_VALUE=48000,HSI_VALUE=16000000,LSI_VALUE=32000,VDD_VALUE=3300,INSTRUCTION_CACHE_ENABLE=1,DATA_CACHE_ENABLE=1,STM32G071xx,PREFETCH_ENABLE=1</Define>
+              <Define>USE_FULL_LL_DRIVER,STM32G071xx,HSE_VALUE=16000000,HSE_STARTUP_TIMEOUT=100,LSE_STARTUP_TIMEOUT=5000,LSE_VALUE=32768,EXTERNAL_CLOCK_VALUE=48000,HSI_VALUE=16000000,LSI_VALUE=32000,VDD_VALUE=3300,PREFETCH_ENABLE=1,INSTRUCTION_CACHE_ENABLE=1,DATA_CACHE_ENABLE=1</Define>
               <Undefine></Undefine>
               <IncludePath>../Core/Inc;../Drivers/STM32G0xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32G0xx/Include;../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
@@ -391,6 +391,21 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
+              <FileName>spi_ili9341.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\spi_ili9341.c</FilePath>
+            </File>
+            <File>
+              <FileName>Mod_bus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\Mod_bus.c</FilePath>
+            </File>
+            <File>
+              <FileName>ReadMe.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ReadMe.txt</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -420,25 +435,7 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32g0xx_it.c</FilePath>
             </File>
-            <File>
-              <FileName>spi_ili9341.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\spi_ili9341.c</FilePath>
-            </File>
-            <File>
-              <FileName>Mod_bus.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\Mod_bus.c</FilePath>
-            </File>
-            <File>
-              <FileName>ReadMe.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ReadMe.txt</FilePath>
-            </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
           <GroupName>Drivers/STM32G0xx_HAL_Driver</GroupName>
@@ -1135,6 +1132,9 @@
               </FileOption>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>
