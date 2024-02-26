@@ -14,44 +14,13 @@
 #define ILI9341_MADCTL_BGR 0x08
 #define ILI9341_MADCTL_MH  0x04	//MH – определяет порядок обновления выделенной области по горизонтали
 
-/*** Redefine if necessary ***/
-#define ILI9341_SPI_PORT hspi1
-//extern SPI_HandleTypeDef ILI9341_SPI_PORT;
-
-#define ILI9341_RES_Pin       GPIO_PIN_7
-#define ILI9341_RES_GPIO_Port GPIOC
-#define ILI9341_CS_Pin        GPIO_PIN_6
-#define ILI9341_CS_GPIO_Port  GPIOB
-#define ILI9341_DC_Pin        GPIO_PIN_9
-#define ILI9341_DC_GPIO_Port  GPIOA
 
 // default orientation
 #define ILI9341_WIDTH  240
 #define ILI9341_HEIGHT 320
 #define ILI9341_ROTATION (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR)
 
-// rotate right
-/*
-#define ILI9341_WIDTH  320
-#define ILI9341_HEIGHT 240
-#define ILI9341_ROTATION (ILI9341_MADCTL_MX | ILI9341_MADCTL_MY | ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR)
-*/
 
-// rotate left
-/*
-#define ILI9341_WIDTH  320
-#define ILI9341_HEIGHT 240
-#define ILI9341_ROTATION (ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR)
-*/
-
-// upside down
-/*
-#define ILI9341_WIDTH  240
-#define ILI9341_HEIGHT 320
-#define ILI9341_ROTATION (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR)
-*/
-
-/****************************/
 
 // Color definitions
 #define	ILI9341_BLACK   0x0000
@@ -64,18 +33,10 @@
 #define ILI9341_WHITE   0xFFFF
 #define ILI9341_COLOR565(r, g, b) (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
 
-// call before initializing any SPI devices
-void ILI9341_Unselect();
 
-void ILI9341_Init(void);
- void ILI9341_Select(void) ;
-void ILI9341_LED_ON(void);
-void ILI9341_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
-void ILI9341_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
-void ILI9341_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
-void ILI9341_FillScreen(uint16_t color);
-void ILI9341_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data);
-void ILI9341_InvertColors(bool invert);
+
+
+void TFT9341_LED_ON(void);
 
 
 void TFT9341_ini(uint16_t w_size, uint16_t h_size);
@@ -84,6 +45,19 @@ void TFT9341_SendCommand(uint8_t cmd);
 void TFT9341_SendData(uint8_t dt);
 void TFT9341_FillRect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
 void TFT9341_FillScreen(uint16_t color);
+
+
+void TFT9341_DrawCircle(uint16_t x0, uint16_t y0, int r, uint16_t color);
+void TFT9341_SetTextColor(uint16_t color);
+void TFT9341_SetBackColor(uint16_t color);
+void TFT9341_SetFont(sFONT *pFonts);
+void TFT9341_DrawChar(uint16_t x, uint16_t y, uint8_t c);
+void TFT9341_String(uint16_t x,uint16_t y, char *str);
+void TFT9341_SetRotation(uint8_t r);
+void TFT9341_FillRect_DMA(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void TFT9341_FillRect_T(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint32_t mass);
+void massiv_code(uint16_t x1, uint16_t y1, uint8_t number);
+
 
 #define swap(a,b) {int16_t t=a;a=b;b=t;}
 

@@ -29,6 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 
+#include "stm32g0xx_ll_dma.h"
 #include "stm32g0xx_ll_rcc.h"
 #include "stm32g0xx_ll_bus.h"
 #include "stm32g0xx_ll_system.h"
@@ -36,8 +37,8 @@ extern "C" {
 #include "stm32g0xx_ll_cortex.h"
 #include "stm32g0xx_ll_utils.h"
 #include "stm32g0xx_ll_pwr.h"
-#include "stm32g0xx_ll_dma.h"
 #include "stm32g0xx_ll_spi.h"
+#include "stm32g0xx_ll_tim.h"
 #include "stm32g0xx_ll_ucpd.h"
 #include "stm32g0xx_ll_usart.h"
 #include "stm32g0xx_ll_gpio.h"
@@ -48,7 +49,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+extern uint16_t OUT_DMA_1[1536];
+extern uint16_t OUT_DMA_2[1536];
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -78,6 +80,7 @@ void Error_Handler(void);
 #define SPI1_NSS_GPIO_Port GPIOA
 #define BUTTON1_Pin LL_GPIO_PIN_10
 #define BUTTON1_GPIO_Port GPIOB
+#define BUTTON1_EXTI_IRQn EXTI4_15_IRQn
 #define RST_LCD_Pin LL_GPIO_PIN_6
 #define RST_LCD_GPIO_Port GPIOC
 #define RS_LCD_Pin LL_GPIO_PIN_7
@@ -86,8 +89,10 @@ void Error_Handler(void);
 #define LCD_LED_GPIO_Port GPIOB
 #define BUTTON2_Pin LL_GPIO_PIN_8
 #define BUTTON2_GPIO_Port GPIOB
+#define BUTTON2_EXTI_IRQn EXTI4_15_IRQn
 #define BUTTON3_Pin LL_GPIO_PIN_9
 #define BUTTON3_GPIO_Port GPIOB
+#define BUTTON3_EXTI_IRQn EXTI4_15_IRQn
 
 /* USER CODE BEGIN Private defines */
 

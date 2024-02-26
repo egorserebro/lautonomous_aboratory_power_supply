@@ -27,7 +27,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-
+	uint16_t	dma_end = 1;
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -140,6 +140,58 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32g0xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line 4 to 15 interrupts.
+  */
+void EXTI4_15_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI4_15_IRQn 0 */
+
+  /* USER CODE END EXTI4_15_IRQn 0 */
+  if (LL_EXTI_IsActiveFallingFlag_0_31(LL_EXTI_LINE_8) != RESET)
+  {
+    LL_EXTI_ClearFallingFlag_0_31(LL_EXTI_LINE_8);
+    /* USER CODE BEGIN LL_EXTI_LINE_8_FALLING */
+
+    /* USER CODE END LL_EXTI_LINE_8_FALLING */
+  }
+  if (LL_EXTI_IsActiveFallingFlag_0_31(LL_EXTI_LINE_9) != RESET)
+  {
+    LL_EXTI_ClearFallingFlag_0_31(LL_EXTI_LINE_9);
+    /* USER CODE BEGIN LL_EXTI_LINE_9_FALLING */
+
+    /* USER CODE END LL_EXTI_LINE_9_FALLING */
+  }
+  if (LL_EXTI_IsActiveFallingFlag_0_31(LL_EXTI_LINE_10) != RESET)
+  {
+    LL_EXTI_ClearFallingFlag_0_31(LL_EXTI_LINE_10);
+    /* USER CODE BEGIN LL_EXTI_LINE_10_FALLING */
+
+    /* USER CODE END LL_EXTI_LINE_10_FALLING */
+  }
+  /* USER CODE BEGIN EXTI4_15_IRQn 1 */
+
+  /* USER CODE END EXTI4_15_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA1 channel 1 interrupt.
+  */
+void DMA1_Channel1_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+		LL_DMA_ClearFlag_TC1(DMA1);
+		LL_DMA_ClearFlag_GI1(DMA1);
+		LL_DMA_ClearFlag_HT1(DMA1);
+		LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_1);
+		dma_end = 1;
+  /* USER CODE END DMA1_Channel1_IRQn 0 */
+
+  /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel1_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 

@@ -1,6 +1,6 @@
 test_g0\stm32g0xx_it.o: ../Core/Src/stm32g0xx_it.c
 test_g0\stm32g0xx_it.o: ../Core/Inc/main.h
-test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
+test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h
 test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h
 test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g071xx.h
 test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Include/core_cm0plus.h
@@ -10,15 +10,16 @@ test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 test_g0\stm32g0xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h
+test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h
+test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_rcc.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_system.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_exti.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_cortex.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_utils.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h
-test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h
-test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dmamux.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h
+test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_ucpd.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h
 test_g0\stm32g0xx_it.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h

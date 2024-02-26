@@ -38,7 +38,7 @@
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+extern	uint16_t	dma_end;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -52,6 +52,8 @@ void HardFault_Handler(void);
 void SVC_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void EXTI4_15_IRQHandler(void);
+void DMA1_Channel1_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
