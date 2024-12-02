@@ -2,6 +2,7 @@
 #include "spi_ili9341.h"
 #include "stm32g0xx_it.h"
 #include "gpio.h"
+#include "dma.h"
 #include <stddef.h>
 
 #include "font24.c"

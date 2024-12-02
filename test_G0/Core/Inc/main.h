@@ -40,7 +40,6 @@ extern "C" {
 #include "stm32g0xx_ll_spi.h"
 #include "stm32g0xx_ll_tim.h"
 #include "stm32g0xx_ll_ucpd.h"
-#include "stm32g0xx_ll_usart.h"
 #include "stm32g0xx_ll_gpio.h"
 
 #if defined(USE_FULL_ASSERT)
@@ -49,8 +48,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-extern uint16_t OUT_DMA_1[1536];
-extern uint16_t OUT_DMA_2[1536];
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -81,6 +79,8 @@ void Error_Handler(void);
 #define BUTTON1_Pin LL_GPIO_PIN_10
 #define BUTTON1_GPIO_Port GPIOB
 #define BUTTON1_EXTI_IRQn EXTI4_15_IRQn
+#define SPI2_NSS_Pin LL_GPIO_PIN_12
+#define SPI2_NSS_GPIO_Port GPIOB
 #define RST_LCD_Pin LL_GPIO_PIN_6
 #define RST_LCD_GPIO_Port GPIOC
 #define RS_LCD_Pin LL_GPIO_PIN_7

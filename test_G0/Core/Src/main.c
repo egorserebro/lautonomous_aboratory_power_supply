@@ -23,7 +23,6 @@
 #include "spi.h"
 #include "tim.h"
 #include "ucpd.h"
-#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -60,8 +59,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-	uint16_t OUT_DMA_1[1536] = {0};
-	uint16_t OUT_DMA_2[1536] = {0};	
+
 	extern uint16_t TFT9341_WIDTH;
 	extern uint16_t TFT9341_HEIGHT;
 	
@@ -133,27 +131,34 @@ Display_current.izmerenn_d_c[3] = 10;
   MX_SPI1_Init();
   MX_UCPD1_Init();
   MX_UCPD2_Init();
-  MX_USART1_UART_Init();
   MX_TIM2_Init();
+  MX_TIM14_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 	LL_TIM_EnableCounter(TIM2);
 	LL_SPI_Enable(SPI1);
+	LL_SPI_Enable(SPI2);
+	MX_DMA_User_Init();
 	TFT9341_LED_ON();
 	TFT9341_reset();
 	TFT9341_ini(240, 320);
 	TFT9341_FillScreen(TFT9341_BLACK);
 	TFT9341_SetRotation(1);
 	TFT9341_SetFont(&Font48);
-	MX_DMA_User_Init();
 
 
+	
+	LL_GPIO_SetOutputPin(SPI2_NSS_GPIO_Port, SPI1_NSS_Pin );
+	LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, 20);
+	LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_3, 19);
+	LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_2);
+	LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_3);
  
 REGS[volt_set] = 123;
 REGS[current_set] = 123;
 //вывод точек
 TFT9341_FillRect(90, 65, 95, 70, TFT9341_GREEN);
 TFT9341_FillRect(234, 65, 239, 70, TFT9341_GREEN);
-
 TFT9341_FillRect(90, 110, 95, 115, TFT9341_GREEN);
 TFT9341_FillRect(234, 110, 239, 115, TFT9341_GREEN);
   /* USER CODE END 2 */
@@ -164,26 +169,38 @@ TFT9341_FillRect(234, 110, 239, 115, TFT9341_GREEN);
 
   while (1)
   {
-		REGS[volt_set]++;
-		if(REGS[volt_set] == 4000)REGS[volt_set] = 0;
+
+			LL_DMA_DisableChannel(DMA1,LL_DMA_CHANNEL_2);
+			LL_DMA_DisableChannel(DMA1,LL_DMA_CHANNEL_3);
+			LL_GPIO_ResetOutputPin(SPI2_NSS_GPIO_Port, SPI2_NSS_Pin );
+	LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, 20);
+	LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_3, 19);
+	LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_2);
+	LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_3);
 		
-				REGS[current_set]++;
-		
-		if(REGS[current_set] == 4000)REGS[current_set] = 0;
-					REGS[current_set]++;
-		
-		if(REGS[volt_measured] == 4000)REGS[volt_measured] = 0;	
-			REGS[volt_measured]++;
-		
-			if(REGS[current_measured]== 4000)REGS[current_measured] = 0;	
-			REGS[current_measured]++;	
-		
-		
-//		REGS[volt_set] = TIM2->CNT;
-//	REGS[current_set] = (TIM2->CNT)>>1;
+//		REGS[volt_set]++;
+//		if(REGS[volt_set] == 4000)REGS[volt_set] = 0;
 //		
-//			REGS[volt_set] = TIM2->CNT;
-//	REGS[volt_measured] = ((TIM2->CNT)>>1) +10;	
+//				REGS[current_set]++;
+//		
+//		if(REGS[current_set] == 4000)REGS[current_set] = 0;
+//					REGS[current_set]++;
+//		
+//		if(REGS[volt_measured] == 4000)REGS[volt_measured] = 0;	
+//			REGS[volt_measured]++;
+//		
+//			if(REGS[current_measured]== 4000)REGS[current_measured] = 0;	
+//			REGS[current_measured]++;	
+		
+		
+		REGS[volt_set] = TIM2->CNT;
+	REGS[current_set] = (TIM2->CNT)>>1;
+		
+			REGS[volt_set] = TIM2->CNT;
+	REGS[volt_measured] = ((TIM2->CNT)>>1) +10;	
+		
+		
+		
 		
 		//вывод заданного напряжения
 		if(Display_current.volt_set_current != REGS[volt_set]){

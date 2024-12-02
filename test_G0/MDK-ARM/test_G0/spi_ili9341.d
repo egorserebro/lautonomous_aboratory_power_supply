@@ -21,13 +21,13 @@ test_g0\spi_ili9341.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_pwr.h
 test_g0\spi_ili9341.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_spi.h
 test_g0\spi_ili9341.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h
 test_g0\spi_ili9341.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_ucpd.h
-test_g0\spi_ili9341.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_usart.h
 test_g0\spi_ili9341.o: ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_gpio.h
 test_g0\spi_ili9341.o: ../Core/Inc/spi_ili9341.h
 test_g0\spi_ili9341.o: ../Core/Inc/fonts.h
 test_g0\spi_ili9341.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 test_g0\spi_ili9341.o: ../Core/Inc/stm32g0xx_it.h
 test_g0\spi_ili9341.o: ../Core/Inc/gpio.h
+test_g0\spi_ili9341.o: ../Core/Inc/dma.h
 test_g0\spi_ili9341.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 test_g0\spi_ili9341.o: ..\Core\Src\font24.c
 test_g0\spi_ili9341.o: ..\Core\Src\font20.c

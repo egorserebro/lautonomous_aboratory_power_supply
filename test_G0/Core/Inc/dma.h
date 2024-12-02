@@ -31,7 +31,10 @@ extern "C" {
 /* DMA memory to memory transfer handles -------------------------------------*/
 
 /* USER CODE BEGIN Includes */
-
+extern uint16_t OUT_DMA_1[1536];
+extern uint16_t OUT_DMA_2[1536];
+extern uint8_t DMA_SPI2_TX[100];
+extern uint8_t DMA_SPI2_RX[100];
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */

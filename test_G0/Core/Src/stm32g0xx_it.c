@@ -193,6 +193,36 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE END DMA1_Channel1_IRQn 1 */
 }
 
+/**
+  * @brief This function handles DMA1 channel 2 and channel 3 interrupts.
+  */
+void DMA1_Channel2_3_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
+	  if(LL_DMA_IsActiveFlag_TC2(DMA1) == 1){
+			LL_DMA_ClearFlag_TC2(DMA1);
+		
+		}
+    if(LL_DMA_IsActiveFlag_TE2(DMA1) == 1){
+		LL_DMA_ClearFlag_TE2(DMA1);
+		}
+		
+  /* USER CODE END DMA1_Channel2_3_IRQn 0 */
+
+  /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
+		if(LL_DMA_IsActiveFlag_TC3(DMA1) == 1){
+			LL_DMA_ClearFlag_TC3(DMA1);
+			LL_DMA_ClearFlag_TC2(DMA1);
+				LL_GPIO_SetOutputPin(SPI2_NSS_GPIO_Port, SPI2_NSS_Pin );
+			
+		}
+    if(LL_DMA_IsActiveFlag_TE3(DMA1) == 1){
+			LL_DMA_ClearFlag_TE3(DMA1);
+			
+		}
+  /* USER CODE END DMA1_Channel2_3_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
